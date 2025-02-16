@@ -18,6 +18,7 @@ export class MyCard extends LitElement {
     this.image ="https://i.ytimg.com/vi/hsqYV_-4bNw/maxresdefault.jpg";
     this.link = "https://www.youtube.com/watch?v=kemivUKb4f4&ab_channel=WeezerVEVO";
     this.color = "#189BCC";
+    this.text =  "Blue Album" ;
   }
 
   static get styles() {
@@ -88,7 +89,7 @@ margin-left: 50px;
       <img src="${this.image}" alt="${this.title}" class="box-image">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Weezer_logo.png/1200px-Weezer_logo.png" class="cos-logo">
    <div class="box-content">
-     <p> Blue Album </p>
+     <p> ${this.text} </p>
      <br>
    <div class="button">
    <a href="${this.link}" >
@@ -107,6 +108,7 @@ margin-left: 50px;
       image: { type: String },
       link: { type: String},
       color: { type: String},
+      text : { type: String}
     };
   }
   updated(changedProperties) {
