@@ -14,6 +14,7 @@ export class MyCard extends LitElement {
 
   constructor() {
     super();
+    this.fancy = false;
     this.title = "pAt's card";
     this.image ="https://i.ytimg.com/vi/hsqYV_-4bNw/maxresdefault.jpg";
     this.link = "https://www.youtube.com/watch?v=kemivUKb4f4&ab_channel=WeezerVEVO";
@@ -27,14 +28,21 @@ export class MyCard extends LitElement {
         display: block;
         
       }
+      :host([fancy]) .box{
+        background-color: pink;
+        
+      }
       button:hover {
-  color: red;
-}
+        color: red;
+      }
+
 #card-list{
   display: flex;
 }
+
+
 .box {
-   display: flex; 
+    display: flex; 
     align-items: center;
     background-color: var(--box-color, #189BCC); ;
     border-radius: 15px;
@@ -42,14 +50,11 @@ export class MyCard extends LitElement {
     border: 2px solid black;
     padding: 15px;
     max-width: 400px;
-    height: 200px;
-    width: 90%;
+    width: 500px;
     gap: 15px;
 }
-.fancy{
-  background-color: blue;
-  
-}
+
+
 
 .box-image {
     width: 150px;
@@ -73,37 +78,89 @@ export class MyCard extends LitElement {
   
 }
 .button{
-margin-left: 50px;
+margin-left: 20px;
+
 } 
+
+.details{
+  margin-top: 50px;
+}
+.details summary {
+    text-align: left;
+    font-size: 20px;
+    padding: 8px 0;
+  }
+
+  .details[open] summary {
+    font-weight: bold;
+  }
+  
+  .details div {
+    border: 2px solid black;
+    text-align: left;
+    padding: 8px;
+    height: 70px;
+    overflow: auto;
+  }
 
      
     
     `;
   }
+  openChanged(e) {
+    console.log(e);
+    if (e.target.getAttribute('open') !== null){
+      this.fancy = true;
+    }
+    else {
+      this.fancy = false;
+    }
+    
+
+  }
+  open(e) {
+    console.log(e);
+    if (this.fancy == false){
+      this.fancy = true;
+    }
+    else {
+      this.fancy = false;
+    }
+    
+
+  }
 
   render() {
     return html`<div>${this.title}</div>
 <body>
-  <div id="cardlist">
-   <div class="box">
-      <img src="${this.image}" alt="${this.title}" class="box-image">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Weezer_logo.png/1200px-Weezer_logo.png" class="cos-logo">
-   <div class="box-content">
-     <p> ${this.text} </p>
-     <br>
-   <div class="button">
-   <a href="${this.link}" >
-   <button id="btn">Details</button> </a>
-</div>
- </div>
- </div>  
+<button @click="${this.open}">Toggle </button>
+<div id="cardlist">
+  <div class="box">
+    <img src="${this.image}" alt="${this.title}" class="box-image">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Weezer_logo.png/1200px-Weezer_logo.png" class="cos-logo">
+    <div class="box-content">
+      <p> ${this.text} </p>
+      <br>
+      <details ?open="${this.fancy}" @toggle="${this.openChanged}">
+        <summary>Description</summary>
+        <div>
+          <slot></slot>
+          <div class="button">
+            <a href="${this.link}" >
+            <button id="btn">Details</button> </a>
+          </div>
+        </div>
+      </details>
     </div>
+  </div>  
+</div>  
 </body>
 </html> `;
   }
 
   static get properties() {
     return {
+      fancy: { type: Boolean, reflect: true},
       title: { type: String },
       image: { type: String },
       link: { type: String},

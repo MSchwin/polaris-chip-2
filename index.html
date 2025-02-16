@@ -11,10 +11,15 @@
     :root,
     html,
     body {
+      
       margin: 0;
       padding: 0;
       font-family: sans-serif;
       background-color: #ededed;
+    }
+    #w {
+      display: flex;
+
     }
     polaris-chip {
       margin: 16px;
@@ -32,8 +37,10 @@
   <polaris-chip title="Grants and donations"></polaris-chip>
 
   <h1>my-card</h1>
-  <my-card></my-card>
-  <my-card
+  <div id="w">
+  <my-card>
+  </my-card>
+  <my-card 
   title="Rivers card"
   image = "https://pbs.twimg.com/profile_images/1638535193912049665/lvoLpndt_200x200.jpg"
   link="https://www.youtube.com/watch?v=LHQqqM5sr7g&ab_channel=WeezerVEVO"
@@ -47,17 +54,16 @@
   title="Brian's card" 
   image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTisfMuH63t1nhBy4sNYqieEw92TBwo_CsQzw&s"
   link="https://www.youtube.com/watch?v=vAoOJLpYKJ0&list=OLAK5uy_kbgBewntTJ9MVzxPA3RZKgI_CVs8tgQ3k&index=10&ab_channel=weezer">
-</my-card>
-<my-card
-title="Silly card"
-image="https://m.media-amazon.com/images/I/61pAyFJQ43L.jpg"
-link="https://www.youtube.com/watch?v=erG5rgNYSdk&list=OLAK5uy_lKV1rkLhOS0Z-ny-ywvmIAdRWtXojqsyA&index=4&ab_channel=WeezerVEVO"
-color="#b4db24"
-text= "Green Album"
->
-
-
-</my-card>
+  </my-card>
+  <my-card
+  title="Silly card"
+  image="https://m.media-amazon.com/images/I/61pAyFJQ43L.jpg"
+  link="https://www.youtube.com/watch?v=erG5rgNYSdk&list=OLAK5uy_lKV1rkLhOS0Z-ny-ywvmIAdRWtXojqsyA&index=4&ab_channel=WeezerVEVO"
+  color="#b4db24"
+  text= "Green Album"
+  >
+  </my-card>
+  </div>
 
 
 
