@@ -1,4 +1,5 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html, css,} from 'lit';
+import "@haxtheweb/meme-maker/meme-maker.js";
 
 /**
  * Now it's your turn. Here's what we need to try and do:
@@ -25,7 +26,7 @@ export class MyCard extends LitElement {
   static get styles() {
     return css`
       :host {
-        display: block;
+        display: inline-block;
         
       }
       :host([fancy]) .box{
@@ -136,7 +137,13 @@ margin-left: 20px;
 <button @click="${this.open}">Toggle </button>
 <div id="cardlist">
   <div class="box">
-    <img src="${this.image}" alt="${this.title}" class="box-image">
+  <meme-maker
+  alt="Up your meme game with hax and allow for more accessible memes"
+  image-url="https://media.tenor.com/TQv3a_CXvQ0AAAAM/weezer-buddyholly.gif"
+  bottom-text="Ooh-wee-hoo"
+  top-text="">
+  </meme-maker>
+    
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Weezer_logo.png/1200px-Weezer_logo.png" class="cos-logo">
     <div class="box-content">
       <p> ${this.text} </p>
