@@ -39,6 +39,9 @@ export class MyCard extends LitElement {
 
 #card-list{
   display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
 }
 
 
@@ -58,8 +61,8 @@ export class MyCard extends LitElement {
 
 
 .box-image {
-    width: 150px;
-    height: 150px;
+    width: auto;
+    height: auto;
     border-radius: 10px;
     object-fit: cover;
 }
